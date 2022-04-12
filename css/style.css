@@ -127,7 +127,7 @@ li::before {
 }
 
 .restrict-h {
-  max-height: fit-content;
+  max-height: 400px;
 }
 
 .restrict-w {
@@ -221,19 +221,9 @@ between the rows and columns
   grid-gap: 20px;
 }
 
-form label {
-  /*
-use a better front and text size for our labels to make them easy to
-read
-*/
-  font-size: 1em;
-}
-
-/*
-style the input controls (and text area) so they are full width in their
+/* style the input controls (and text area) so they are full width in their
 cell. use a larger font-size, have a light gray border, and slightly rounded
-courners
-*/
+courners */
 input,
 textarea {
   width: 100%;
@@ -246,23 +236,17 @@ textarea {
   resize: none;
 }
 
-/*
-when the input controls (and text area) have the focus, change the border color
-to light blue so it is clear where you're entering text
-*/
+/* when the input controls (and text area) have the focus, change the border color
+to light blue so it is clear where you're entering text */
 input:focus,
 textarea:focus {
   border: 0.125em solid #ffcbcb;
   outline: none;
 }
 
-/*
-for out two "submit" syle buttons, make them stand out a bit more
-*/
+/* for out two "submit" syle buttons, make them stand out a bit more */
 
-/*
-also do something whenyou hover over or foxus them
-*/
+/* also do something whenyou hover over or foxus them */
 a:hover,
 input[type="submit"]:hover,
 input[type="submit"]:focus,
@@ -272,18 +256,14 @@ input[type="reset"]:focus {
   color: #e7fbbe;
 }
 
-/*
-streatch out textarea from the start of the grid to the end
+/* streatch out textarea from the start of the grid to the end
 NOTE: the grid has 2 colun, but the number here is for the outside
-lines of each
-*/
+lines of each */
 textarea {
   grid-column: 1/3;
 }
 
-/*
-move the buttons to the right side of the right column
-*/
+/* move the buttons to the right side of the right column */
 .form-buttons {
   grid-column: 2/3;
   text-align: center;
