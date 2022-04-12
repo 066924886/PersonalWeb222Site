@@ -1,6 +1,10 @@
 /**
  *  education.js
  *
+ *      Name:       <Aaron Meek>
+ *      Student ID: <121258164>
+ *      Date:       <12/04/2022>
+ *
  *  res:  resource/instatution
  *  prog: program/course
  *  cred: credential

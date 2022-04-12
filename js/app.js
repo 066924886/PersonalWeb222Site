@@ -9,15 +9,19 @@
  *
  *      Name:       <Aaron Meek>
  *      Student ID: <121258164>
- *      Date:       <11/04/2022>
+ *      Date:       <12/04/2022>
  */
 
-const { education, experience, basic_info } = window;
+const { basic_info, cities, education, experience } = window;
+const date_element = document.getElementById("date");
+const radios = document.getElementsByName("reason");
+const date = new Date();
 const css_mock_modol = "mock-modol";
 const css_center_text = "center-text";
 const css_styled_table = "styled-table";
 const css_cursors = [];
 let cursor_switch = true;
+let hourlyRateElement = false;
 
 /*           FUNCTIONS           */
 
@@ -122,7 +126,7 @@ function loadExpTable(exp) {
   });
 }
 
-// loads basic info
+// loads basic info about me
 function loadBasicInfo(info) {
   const table = document.getElementById("about-me");
 
@@ -130,6 +134,15 @@ function loadBasicInfo(info) {
     let tr = document.getElementById(key);
     let td = tr.appendChild(document.createElement("td"));
     td.innerText = info[key];
+  });
+}
+
+// loads cities from cities.js into the form datalist
+function loadCities(cty) {
+  const list = document.getElementById("dat-city");
+
+  Object.keys(cty).forEach((key) => {
+    list.appendChild(document.createElement("option")).value = cty[key];
   });
 }
 
@@ -143,6 +156,50 @@ function getAllCursorEls(cursors) {
     }
   }
 }
+
+// ups the Date...
+function upDate(date, element) {
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  element.innerHTML = `Current Date: ${day}/${month}/${year}`;
+}
+
+function radioListeners(rads) {
+  rads.forEach((e) => {
+    e.addEventListener("click", appearHourlyRate);
+  });
+}
+
+function appearHourlyRate() {
+  if (this.id === "dat-hiring" && hourlyRateElement === false) {
+    const new_node = document.createElement("label");
+    const input = document.createElement("input");
+
+    new_node.id = "hourly-label";
+    new_node.setAttribute("for", "dat-hourly");
+    new_node.innerHTML = "Hourly Rate<r>*</r>";
+
+    input.id = "dat-hourly";
+    input.setAttribute("name", "hourly-rate");
+    input.setAttribute("pattern", "[$][0-9]{3}");
+    input.setAttribute("value", "$");
+    input.setAttribute("required", true);
+
+    this.after(new_node);
+    new_node.after(input);
+
+    hourlyRateElement = true;
+  } else if (this.id !== "dat-hiring" && hourlyRateElement === true) {
+    document.getElementById("hourly-label").remove();
+    document.getElementById("dat-hourly").remove();
+    hourlyRateElement = false;
+  }
+}
+
+/********** called over **********/
+// i still dislike console.log
+const print = (e) => console.log(e);
 
 // switches the cursors on and off
 const updateCursors = setInterval(() => {
@@ -159,22 +216,19 @@ const updateCursors = setInterval(() => {
   }
 }, 550);
 
-/********** called over **********/
-// i still dislike console.log
-const print = (e) => console.log(e);
-/*
-n = new Date();
-y = n.getFullYear();
-m = n.getMonth() + 1;
-d = n.getDate();
-document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
-*/
-
 /********** LOGIC **********/
 // or again, lack there of
 css_cursors.length = document.getElementsByTagName("span").length;
+document.getElementById("contact-me").addEventListener("click", () => {
+  document.getElementById("dat-msg").focus(); // this is just a cheap trick I'm using to force the page lower than the input box I actually want to focus
+  document.getElementById("dat-name").focus(); // this is the box I want to focus
+});
+
 getAllCursorEls(css_cursors);
 loadExpTable(experience);
 loadEduTable(education);
 loadBasicInfo(basic_info);
+upDate(date, date_element);
+loadCities(cities);
+radioListeners(radios);
 updateCursors;

@@ -1,6 +1,10 @@
 /**
  *  experience.js
  *
+ *      Name:       <Aaron Meek>
+ *      Student ID: <121258164>
+ *      Date:       <12/04/2022>
+ *
  *  def: defined position
  *  pos: positions object
  *      id: position ID

@@ -1,5 +1,9 @@
 /**
  *  basic_info.js
+ *
+ *      Name:       <Aaron Meek>
+ *      Student ID: <121258164>
+ *      Date:       <12/04/2022>
  */
 
 window.basic_info = {

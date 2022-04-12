@@ -1,3 +1,8 @@
+<!--
+ *      Name:       <Aaron Meek>
+ *      Student ID: <121258164>
+ *      Date:       <12/04/2022>
+-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -28,10 +33,12 @@
         <div class="center-text">
           <img src="./Resources/AaronMeek.jpg" alt="Picture of Aaron Meek" />
           <button class="std-buttons">
-            <a download href="./Resources/Resume.pdf" class="large">Resume</a>
+            <a href="./Resources/Resume.pdf" target="_blank" class="large"
+              >Resume</a
+            >
           </button>
-          <button class="std-buttons">
-            <a href="" class="large">Contact Me</a>
+          <button id="contact-me" class="std-buttons">
+            <a class="large">Contact Me</a>
           </button>
         </div>
       </div>
@@ -83,10 +90,11 @@
             for my use. I also declare that no part of this assignment has been
             distributed to other students.
           </p>
-          <span>Creation Date: 11/04/2022</span> <br />
+          <span>Hosted Date : 12/4/2022</span> <br />
           <span id="date">Current Date: 00/00/00</span>
         </div>
 
+        <!-- LOAD INFORMATION DYNAMIC INTO STATIC ROWS -->
         <div class="container collumn mock-modol tab restrict-w restrict-h">
           <span class="circ"></span>
           <h3>basic_info</h3>
@@ -188,13 +196,50 @@
       <h2>guest_user</h2>
       <h3><b>./</b>database<b>/</b>collect_user_data.sh</h3>
 
-      <!--tabindex = 0 indicates that this can be tabed through in sequential order respect to the menu layout
+      <!-- tabindex = 0 indicates that this can be tabed through in sequential order respect to the menu layout
         this is also true for objects that share the same tabindex value, only now there would be a defined order-->
       <div class="container mock-modol fit">
         <span class="circ"></span>
         <p class="center-text">COMPLETELY SAFE FORM</p>
-        <!-- NAME  action -> https://httpbin.org/post  -->
-        <form action="/" name="data-form" method="POST">
+
+        <form action="https://httpbin.org/post" name="data-form" method="POST">
+          <!-- RADIO BUTTONS 
+          Options to specify what this is about: one of "Question", "Comment", or "Hiring".
+          If the user selects "Hiring", dynamically reveal (with JavaScript) another input
+          box to enter the hourly rate (with proper validation). In the case of "Comment" or "Question" hide this input box -->
+
+          <label for="dat-comment"> Comment</label
+          ><input
+            type="radio"
+            id="dat-comment"
+            name="reason"
+            value="Comment"
+            class="rad"
+            checked
+            required
+          />
+
+          <label for="dat-question"> Question</label>
+          <input
+            type="radio"
+            id="dat-question"
+            name="reason"
+            class="rad"
+            value="Question"
+          />
+
+          <label for="dat-hiring"> Hiring</label>
+          <input
+            type="radio"
+            id="dat-hiring"
+            name="reason"
+            class="rad"
+            value="Hiring"
+          />
+
+          <!-- HOURLY RATE APPEARS HERE -->
+
+          <!-- NAME  action -> https://httpbin.org/post  -->
           <label for="dat-name">full name<r>*</r></label>
           <input id="dat-name" type="text" name="name" tabindex="0" required />
 
@@ -220,12 +265,10 @@
 
           <!-- CITY (use a <datalist> for autocomplete of common Canadian cities)-->
           <label for="dat-city">city<r>*</r></label>
-          <select id="dat-city" class="fb-p-table restrict-w" required>
-            <option value="RH">Richmond Hill</option>
-            <option value="AU">Aroura</option>
-            <option value="TR">Toronto</option>
-            <option value="NW">Newmarket</option>
-          </select>
+          <input list="dat-city" name="city" />
+          <datalist id="dat-city">
+            <!-- DYNAMICALLY LOAD THE LIST -->
+          </datalist>
 
           <!-- POSTAL CODE (must be a valid Canadian Postal Code, with or without a space, use a regex pattern)-->
           <label for="dat-postal">postal code<r>*</r></label>
@@ -233,14 +276,10 @@
             id="dat-postal"
             type="text"
             name="postal"
+            pattern="[A-Za-z][0-9][A-Za-z][ -]?[0-9][A-Za-z][0-9]"
             tabindex="0"
             required
           />
-
-          <!-- RADIO BUTTONS 
-          Options to specify what this is about: one of "Question", "Comment", or "Hiring".
-          If the user selects "Hiring", dynamically reveal (with JavaScript) another input
-          box to enter the hourly rate (with proper validation). In the case of "Comment" or "Question" hide this input box -->
 
           <!-- D.O.B -->
           <label for="dat-dob">date of birth<r>*</r></label>
@@ -283,6 +322,7 @@
     <script src="./js/education.js"></script>
     <script src="./js/experience.js"></script>
     <script src="./js/basic_info.js"></script>
+    <script src="./js/cities.js"></script>
 
     <!-- Main App JavaScript File -->
     <script src="./js/app.js"></script>
