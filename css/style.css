@@ -85,6 +85,10 @@ input[type="reset"] {
   padding: 2em;
 }
 
+dfn {
+  color: #d9d7f1;
+}
+
 /************************************************************/
 
 /* minute details used often */

@@ -71,30 +71,50 @@
           <p>
             I am an independant/informal researcher and a student at
             <r>Seneca College's</r>
-            school of *Software Design* & *Data Science*. I spend most of my
-            time studying *computational physics* and *mathematics*, and how to
-            incorperate the techniques I learn into the software I develop.
+            school of
+            <dfn title="I'm interested in creating educational software."
+              >Software Design</dfn
+            >
+            &
+            <dfn title="Scientific methods to merge data into information."
+              >Data Science</dfn
+            >. I spend most of my time studying
+            <dfn
+              title="Solving physics problems by implementing the techniques of computer science, mathematics and physics."
+              >computational physics</dfn
+            >
+            and mathematics, and how to incorperate the techniques I learn into
+            the software I develop for educational software.
           </p>
           <p>
-            Don't let me near a piano unless you enjoy Chopins repertoire. I
-            also enjoy listening to heavy metal covers of classical music, and I
-            believe it to be quite profound. Cat lover, and dogs aren't my
+            Don't let me near a piano unless you enjoy Chopins
+            <dfn
+              title="Some of my favourites: Revolutionary Etude, Fantaisie Impromptu, many of Nocturnes, and of course his Concerto No. 1."
+              >repertoire</dfn
+            >. I also enjoy listening to heavy metal covers of classical music,
+            and I believe it to be quite profound. Cat lover, and dogs aren't my
             thing; despite owning two.
           </p>
           <p>
-            <r>Honesty Statement:</r> I declare that my assessment is wholly my
-            own work in accordance with Seneca Academic Policy. No part of this
-            assessment has been copied manually or electronically from any other
-            source (including web sites) except for the information supplied by
-            the WEB222 instructors and / or made available in this assessment
-            for my use. I also declare that no part of this assignment has been
-            distributed to other students.
+            <r
+              ><dfn
+                title="Honestly, I do not know the airspeed velocity of an unladen swallow."
+                >Honesty Statement</dfn
+              >:</r
+            >
+            I declare that my assessment is wholly my own work in accordance
+            with Seneca Academic Policy. No part of this assessment has been
+            copied manually or electronically from any other source (including
+            web sites) except for the information supplied by the WEB222
+            instructors and / or made available in this assessment for my use. I
+            also declare that no part of this assignment has been distributed to
+            other students.
           </p>
           <span>Hosted Date : 12/4/2022</span> <br />
           <span id="date">Current Date: 00/00/00</span>
         </div>
 
-        <!-- LOAD INFORMATION DYNAMIC INTO STATIC ROWS -->
+        <!-- LOAD INFORMATION DYNAMICALLY INTO STATIC ROWS -->
         <div class="container collumn mock-modol tab restrict-w restrict-h">
           <span class="circ"></span>
           <h3>basic_info</h3>
@@ -203,11 +223,7 @@
         <p class="center-text">COMPLETELY SAFE FORM</p>
 
         <form action="https://httpbin.org/post" name="data-form" method="POST">
-          <!-- RADIO BUTTONS 
-          Options to specify what this is about: one of "Question", "Comment", or "Hiring".
-          If the user selects "Hiring", dynamically reveal (with JavaScript) another input
-          box to enter the hourly rate (with proper validation). In the case of "Comment" or "Question" hide this input box -->
-
+          <!-- RADIO BUTTONS -->
           <label for="dat-comment"> Comment</label
           ><input
             type="radio"
@@ -218,7 +234,6 @@
             checked
             required
           />
-
           <label for="dat-question"> Question</label>
           <input
             type="radio"
@@ -227,7 +242,6 @@
             class="rad"
             value="Question"
           />
-
           <label for="dat-hiring"> Hiring</label>
           <input
             type="radio"
@@ -239,7 +253,7 @@
 
           <!-- HOURLY RATE APPEARS HERE -->
 
-          <!-- NAME  action -> https://httpbin.org/post  -->
+          <!-- NAME -->
           <label for="dat-name">full name<r>*</r></label>
           <input id="dat-name" type="text" name="name" tabindex="0" required />
 
@@ -263,14 +277,14 @@
             required
           />
 
-          <!-- CITY (use a <datalist> for autocomplete of common Canadian cities)-->
+          <!-- CITY -->
           <label for="dat-city">city<r>*</r></label>
           <input list="dat-city" name="city" />
           <datalist id="dat-city">
             <!-- DYNAMICALLY LOAD THE LIST -->
           </datalist>
 
-          <!-- POSTAL CODE (must be a valid Canadian Postal Code, with or without a space, use a regex pattern)-->
+          <!-- POSTAL CODE -->
           <label for="dat-postal">postal code<r>*</r></label>
           <input
             id="dat-postal"
@@ -285,8 +299,7 @@
           <label for="dat-dob">date of birth<r>*</r></label>
           <input id="dat-dob" type="date" name="dob" tabindex="0" required />
 
-          <!-- A large area to enter the message that they want to send (it can show at least 5 lines of text at the same time) -->
-
+          <!-- MESSAGE BOX -->
           <label for="dat-msg">send a sessage<r>*</r></label>
           <textarea
             id="dat-msg"
