@@ -26,7 +26,7 @@ let hourlyRateElement = false;
 /*           FUNCTIONS           */
 
 /********** called once **********/
-// fills the experience table
+// fills the education table
 function loadEduTable(edu) {
   const t_body = document.getElementById("education");
 
@@ -89,7 +89,7 @@ function loadEduTable(edu) {
   });
 }
 
-// fills the educaiton table
+// fills the experience table
 function loadExpTable(exp) {
   const t_body = document.getElementById("experience");
 
@@ -182,7 +182,7 @@ function appearHourlyRate() {
 
     input.id = "dat-hourly";
     input.setAttribute("name", "hourly-rate");
-    input.setAttribute("pattern", "[$][0-9]{3}");
+    input.setAttribute("pattern", "[$][0-9]{1,3}");
     input.setAttribute("value", "$");
     input.setAttribute("required", true);
 
